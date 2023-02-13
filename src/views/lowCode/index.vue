@@ -1,13 +1,12 @@
 <template>
+    <p>111111111111111111111111</p>
+  </template>
   
-</template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style>
-
-</style>
+  <script setup lang="ts">
+//   
+  </script>
+  
+  <style lang="scss" scoped>
+  
+  </style>
+  
