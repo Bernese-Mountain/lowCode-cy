@@ -15,6 +15,7 @@ import 'animate.css/animate.min.css'
 import 'vue3-sketch-ruler/lib/style.css'
 
 async function appInit() {
+  console.log("beginToMoute");
   const goAppProvider = createApp(GoAppProvider)
 
   const app = createApp(App)
