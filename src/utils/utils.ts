@@ -2,7 +2,7 @@ import { h } from 'vue'
 import { NIcon } from 'naive-ui'
 import screenfull from 'screenfull'
 import throttle from 'lodash/throttle'
-// import Image_404 from '../assets/images/exception/image-404.png'
+import Image_404 from '../assets/images/exception/image-404.png'
 import html2canvas from 'html2canvas'
 import { downloadByA } from './file'
 import { toString } from './type'
@@ -50,9 +50,9 @@ export const renderLang = (lang: string, set = {}, tag = 'span') => {
  * * 获取错误处理图片，默认 404 图
  * @returns url
  */
-// export const requireErrorImg = () => {
-//   return Image_404
-// }
+export const requireErrorImg = () => {
+  return Image_404
+}
 
 /**
  * * 全屏操作函数

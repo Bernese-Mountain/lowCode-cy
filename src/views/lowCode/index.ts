@@ -1,3 +1,3 @@
-import LowCode from './index.vue'
+import chart from './index.vue'
 
-export { LowCode }
+export { chart }

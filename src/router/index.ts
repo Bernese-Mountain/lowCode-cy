@@ -1,34 +1,34 @@
 import type { App } from 'vue'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-// import { createRouterGuards } from './router-guards'
+import { RedirectRoute } from '@/router/base'
+import { createRouterGuards } from './router-guards'
 import { PageEnum } from '@/enums/pageEnum'
+import { HttpErrorPage, LoginRoute, ReloadRoute } from '@/router/base'
 import { Layout } from '@/router/constant'
-import  test from '@/test/test.vue'
+
+import modules from '@/router/modules'
 
 const RootRoute: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Root',
-    redirect: PageEnum.TEST,
-    component: test,
+    redirect: PageEnum.BASE_HOME,
+    component: Layout,
     meta: {
       title: 'Root',
     },
+    children: [
+      ...HttpErrorPage,
+      modules.projectRoutes,
+      modules.chartRoutes,
+      modules.previewRoutes,
+      modules.editRoutes
+    ]
   }
 ]
 
-export const lowCode: RouteRecordRaw = {
-  path: '/',
-  name: 'lowCode',
-  redirect: '/lowCode',
-  component: () => import('@/views/lowCode'),
-  // meta: {
-  //   title: '登录',
-  // },
-};
 
-
-export const constantRouter: any[] = [ ...RootRoute ];
+export const constantRouter: any[] = [LoginRoute, ...RootRoute, RedirectRoute, ReloadRoute];
 
 const router = createRouter({
   history: createWebHashHistory(''),
@@ -39,6 +39,7 @@ const router = createRouter({
 export function setupRouter(app: App) {
   app.use(router);
   // 创建路由守卫
-  // createRouterGuards(router)
+  createRouterGuards(router)
+  console.log("路由守卫创建完毕")
 }
 export default router

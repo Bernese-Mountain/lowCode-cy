@@ -66,7 +66,8 @@ export const routerTurnByPath = (
 ) => {
   let fullPath = ''
   if (query?.length) {
-    fullPath = `${path}/${query.join('/')}`
+    fullPath = `${path}/${query.join('/')}`;
+    console.log(fullPath);
   }
   if (windowOpen) {
     return openNewWindow(fullPath)
@@ -80,6 +81,7 @@ export const routerTurnByPath = (
   router.push({
     path: fullPath,
   })
+  // console.log("fullPath");
 }
 
 /**
