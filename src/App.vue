@@ -1,34 +1,17 @@
+<script setup lang="ts">
+import lowcode from '@/views/lowcode.vue'
+</script>
+
 <template>
-  <n-config-provider
-    :theme="darkTheme"
-    :hljs="hljsTheme"
-    :locale="locale"
-    :date-locale="dateLocale"
-    :theme-overrides="overridesTheme"
-  >
-    <go-app-provider>
-      <I18n></I18n>
-      <router-view></router-view>
-    </go-app-provider>
-  </n-config-provider>
+  <div class="layout">
+    <lowcode>
+      
+    </lowcode>
+  </div>
 </template>
 
-<script lang="ts" setup>
-import { NConfigProvider } from 'naive-ui'
-import { GoAppProvider } from '@/components/GoAppProvider'
-import { I18n } from '@/components/I18n'
-import { useDarkThemeHook, useThemeOverridesHook, useCode, useLang } from '@/hooks'
-
-// 暗黑主题
-const darkTheme = useDarkThemeHook()
-
-// 主题配置
-const overridesTheme = useThemeOverridesHook()
-
-// 代码主题
-const hljsTheme = useCode()
-
-// 全局语言
-const { locale, dateLocale } = useLang()
-
-</script>
+<style scoped>
+   .layout{
+    height: 100%;
+   }
+</style>

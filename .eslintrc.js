@@ -8,7 +8,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
+      jsx: true, 
       tsx: true
     }
   },
@@ -25,6 +25,7 @@ module.exports = {
     'vue/no-unused-vars': 'off',
     'vue/multi-word-component-names': 'off',
     'vue/valid-template-root': 'off',
-    'vue/no-mutating-props': 'off'
+    'vue/no-mutating-props': 'off',
+    indent: ['error', 2], // 缩进4格
   }
 }
